@@ -128,6 +128,8 @@ Curiosity hooks:
   - "What do you think `<h1>`, `<p>`, `<a href="...">`, or `<img src="...">` do? Try one."
   - "Add `<!DOCTYPE html>` as the very first line. What's that for? Look it up."
 
+Next lesson: `css-intro` grows this page and styles it.
+
 ## Troubleshooting (help directly)
 
 | What they see | Likely cause | Fix |

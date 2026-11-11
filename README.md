@@ -55,6 +55,10 @@ Claude takes it from there. A few tips:
 - **Mistakes are fine.** Browsers are forgiving, and figuring out why is half the fun.
 - **Confused by a GitHub screen?** Tell Claude what you see.
 
+**Next lesson:** when your page is live, do the same with
+[css-intro](.claude/skills/tutor/lessons/css-intro.md) in place of the lesson file. You'll
+add more HTML, then learn to style it.
+
 ## In Claude Code
 
 If you're comfortable with a terminal:
@@ -65,7 +69,7 @@ cd html-intro
 claude
 ```
 
-Then type `/tutor html-intro`. To use it from any folder, run
+Then type `/tutor html-intro` (or `/tutor css-intro` next). To use it from any folder, run
 `cp -r .claude/skills/tutor ~/.claude/skills/` first.
 
 ## Editing
@@ -74,9 +78,10 @@ Then type `/tutor html-intro`. To use it from any folder, run
 .claude/skills/tutor/
 ├── SKILL.md              how to teach: works for any lesson
 └── lessons/
-    └── html-intro.md     what to teach: steps, troubleshooting
+    ├── html-intro.md     first web page, live on GitHub Pages
+    └── css-intro.md      more HTML, then styling it
 ```
 
 To add a lesson, add a file to `lessons/`. Give it a goal, say which part is the
-learner's to figure out and which parts are snags to just help with, then list the steps,
-curiosity hooks, and troubleshooting. Add it to the list in the tutor's `description`.
+learner's to figure out and which parts are snags to just help with, then list the steps
+(each with a core and optional deeper branches), curiosity hooks, and troubleshooting. Add it to the list in the tutor's `description`.
