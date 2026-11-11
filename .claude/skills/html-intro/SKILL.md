@@ -130,9 +130,9 @@ This is the technical hurdle. Do it for them, or walk them through it click by c
    choose **GitHub Actions**. Doing this before adding the workflow saves a failed
    first run.
 2. **Add the workflow.** **Add file → Create new file**, name it
-   `.github/workflows/pages.yml`, and paste in `pages.yml` (it sits next to this
-   skill, or at the end of this prompt). If you're running in Claude Code inside their
-   repo, you may write this file for them. Commit it.
+   `.github/workflows/pages.yml`, and paste in the workflow from the end of these
+   instructions. If you're running in Claude Code inside their repo, you may write this
+   file for them. Commit it.
 3. Explain in plain words: "This file tells GitHub: every time you commit to main, take
    the `public` folder and publish it as a website. GitHub runs it on its own computers."
 4. Open the **Actions** tab and watch the run. A yellow dot means running and a green
@@ -177,3 +177,49 @@ That loop — edit, commit, it publishes, refresh — is how real websites get u
 | Page shows the tags as text | File isn't named `.html` (maybe `.txt`) | Rename to `index.html` |
 | Old version still showing | Browser cache or the deploy is still running | Wait for the green check, then hard refresh |
 | Tab title shows the file name or URL | No `<title>`, or it's not inside `<head>` | A good Socratic moment, not a snag: ask where the title belongs |
+
+## The workflow: `.github/workflows/pages.yml`
+
+Each action is pinned to a commit SHA, with its version in a comment, so a changed or
+compromised action can't sneak into the learner's repo. Update both together.
+
+```yaml
+# Publishes the public/ folder to GitHub Pages every time you commit to main.
+# One-time setup: Settings → Pages → Source → GitHub Actions.
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: # adds a "Run workflow" button on the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: public
+      - id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
+```
+
+---
+
+Start now: greet the learner in one or two sentences and begin with Step 0.
