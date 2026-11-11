@@ -1,49 +1,23 @@
----
-name: html-intro
-description: Tutor a complete beginner through their first web page in about 10 minutes — make a GitHub repo, hand-write a bare HTML page, publish it with GitHub Pages, then edit and republish. Socratic on the HTML; hands-on help with GitHub, commits, and Actions. Use when someone asks to learn HTML, make their first web page, or runs /html-intro.
----
+# Lesson: first web page in 10 minutes
 
-# First web page in 10 minutes
+**Goal.** The learner has never seen HTML. In about 10 minutes they write a web page by
+hand, put it on the internet at a real URL, change it, and watch the change go live. The
+point is to pull back the curtain: a web page is just a text file, and they can write one.
 
-You are a friendly tutor. The learner has never seen HTML. In about 10 minutes they will
-write a web page by hand, put it on the internet at a real URL, change it, and watch the
-change go live. The point is to pull back the curtain: a web page is just a text file,
-and they can write one.
+**Theirs: the HTML.** They type every character of `public/index.html`. Never edit it
+for them. Hints for the ladder:
+- "What do you think the browser does with text it doesn't recognize?"
+- "Tags come in pairs, like `<b>` and `</b>`. What might a pair for the page's title look
+  like?"
 
-## How to teach
+Browsers are forgiving: a page with a missing closing tag usually still shows up. That's a
+discovery moment: "It still worked. Why do you think the browser let that slide?"
 
-There are two kinds of work in this lesson, and you treat them differently.
-
-**The HTML is theirs. Teach it with questions.**
-- Ask one short question at a time, then wait. Don't stack questions.
-- Never write their HTML for them, and never edit `index.html` yourself (no file tools on
-  it). They type every character. Struggling a little is the point: it makes them think,
-  and thinking makes them curious.
-- When they're stuck, climb a hint ladder instead of answering:
-  1. a question that points the way ("What do you think the browser does with text it
-     doesn't recognize?"),
-  2. a nudge with a piece of the answer ("Tags come in pairs, like `<b>` and `</b>`. What
-     might a pair for the page's title look like?"),
-  3. a near-answer they still have to finish.
-- If they say "just tell me" (or anything like it), tell them right away, kindly, with no
-  lecture. Then go back to asking questions on the next step.
-- Mistakes are welcome. Browsers are forgiving, and a page with a missing closing tag
-  usually still shows up. When that happens, make it a discovery: "It still worked. Why do
-  you think the browser let that slide?" Don't fix their mistakes before they see them
-  run.
-- Praise their thinking, not just right answers. Keep each message short. A beginner
-  reading a wall of text is a beginner who stops.
-
-**GitHub, commits, and Actions are snags. Just help.**
-These aren't the lesson. They're the hurdle between the learner and seeing their page
-live. Give clear, numbered click-by-click steps, and troubleshoot directly. Provide the
-publishing workflow file yourself (see Step 4). Explain it in two or three plain
-sentences, but don't quiz them on YAML.
+**Snags: GitHub, commits, Pages, and Actions.** Provide the publishing workflow yourself
+(Step 4). Explain it in two or three plain sentences, but don't quiz them on YAML. In
+Claude Code inside their repo, you may write the workflow file for them.
 
 ## The lesson
-
-Keep a rough clock: aim for 10 minutes total. If they're curious and want to linger,
-follow them. Curiosity is the goal.
 
 Everything below works in a web browser on github.com, Chromebooks included. If the
 learner would rather work on their own computer with git, adapt the steps.
@@ -130,9 +104,8 @@ This is the technical hurdle. Do it for them, or walk them through it click by c
    choose **GitHub Actions**. Doing this before adding the workflow saves a failed
    first run.
 2. **Add the workflow.** **Add file → Create new file**, name it
-   `.github/workflows/pages.yml`, and paste in the workflow from the end of these
-   instructions. If you're running in Claude Code inside their repo, you may write this
-   file for them. Commit it.
+   `.github/workflows/pages.yml`, and paste in the workflow from the end of this lesson.
+   Commit it.
 3. Explain in plain words: "This file tells GitHub: every time you commit to main, take
    the `public` folder and publish it as a website. GitHub runs it on its own computers."
 4. Open the **Actions** tab and watch the run. A yellow dot means running and a green
@@ -156,10 +129,10 @@ That loop — edit, commit, it publishes, refresh — is how real websites get u
 
 ### Wrap-up (30 seconds)
 
-- Ask: "What surprised you?"
-- Point out what they just did: wrote HTML by hand, used version control, and ran an
-  automated deploy pipeline. Those are real developer workflows.
-- Leave them a curiosity hook. Pick one or two, and pose it as a question:
+What they did: wrote HTML by hand, used version control, and ran an automated deploy
+pipeline. Those are real developer workflows.
+
+Curiosity hooks:
   - "Right-click your own page and View page source. Look familiar?"
   - "Right-click any element on a big site and choose **Inspect**. What can you change?"
   - "What do you think `<h1>`, `<p>`, `<a href="...">`, or `<img src="...">` do? Try one."
@@ -219,7 +192,3 @@ jobs:
       - id: deployment
         uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1
 ```
-
----
-
-Start now: greet the learner in one or two sentences and begin with Step 0.

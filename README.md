@@ -32,21 +32,21 @@ You need two free accounts and about 10 minutes.
 Go to [claude.ai](https://claude.ai) and sign up. The free plan works. Keep it open in a
 second browser tab.
 
-### 3. Copy the lesson
+### 3. Start the lesson
 
-The lesson is a set of instructions that turns Claude into your tutor.
-
-1. Open [the lesson file](.claude/skills/html-intro/SKILL.md).
-2. Near the top right of the file, click **Copy raw file**. The button looks like two
-   overlapping squares.
-
-No copy button? Click **Raw**, select everything (Ctrl+A, or Cmd+A on a Mac), and copy it
-(Ctrl+C, or Cmd+C).
-
-### 4. Start
+You'll paste two files into Claude: the **tutor** (how to teach) and the **lesson** (what
+to teach). For each one, open it and click **Copy raw file** near the top right. The
+button looks like two overlapping squares.
 
 1. In your Claude tab, start a **new chat**.
-2. Paste (Ctrl+V, or Cmd+V on a Mac) and press Enter.
+2. Open [the tutor](.claude/skills/tutor/SKILL.md), click **Copy raw file**, and paste it
+   into the message box (Ctrl+V, or Cmd+V on a Mac). Don't press Enter yet.
+3. Open [the lesson](.claude/skills/tutor/lessons/html-intro.md), click **Copy raw file**,
+   and paste it below the first one.
+4. Press Enter.
+
+No copy button? Click **Raw**, select everything (Ctrl+A, or Cmd+A), and copy it (Ctrl+C,
+or Cmd+C).
 
 Claude takes it from there. A few tips:
 
@@ -65,10 +65,18 @@ cd html-intro
 claude
 ```
 
-Then type `/html-intro`. To use it from any folder, run
-`cp -r .claude/skills/html-intro ~/.claude/skills/` first.
+Then type `/tutor html-intro`. To use it from any folder, run
+`cp -r .claude/skills/tutor ~/.claude/skills/` first.
 
-## Editing the lesson
+## Editing
 
-Everything lives in one file: [SKILL.md](.claude/skills/html-intro/SKILL.md). It holds
-the teaching rules, the steps, and the publishing workflow the tutor hands out.
+```
+.claude/skills/tutor/
+├── SKILL.md              how to teach: works for any lesson
+└── lessons/
+    └── html-intro.md     what to teach: steps, troubleshooting, the Pages workflow
+```
+
+To add a lesson, add a file to `lessons/`. Give it a goal, say which part is the
+learner's to figure out and which parts are snags to just help with, then list the steps,
+curiosity hooks, and troubleshooting. Add it to the list in the tutor's `description`.
