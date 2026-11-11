@@ -74,7 +74,7 @@ Then type `/tutor html-intro`. To use it from any folder, run
 .claude/skills/tutor/
 ├── SKILL.md              how to teach: works for any lesson
 └── lessons/
-    └── html-intro.md     what to teach: steps, troubleshooting, the Pages workflow
+    └── html-intro.md     what to teach: steps, troubleshooting
 ```
 
 To add a lesson, add a file to `lessons/`. Give it a goal, say which part is the
