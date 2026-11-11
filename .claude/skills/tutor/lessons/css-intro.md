@@ -10,8 +10,9 @@ because people tried it the other way first.
 **Who.** Finished `html-intro`, or can open and edit `docs/index.html` in their repo. If
 they have no page yet, run `html-intro` first.
 
-**Time.** About 25 minutes on the core path. Each **deeper** branch adds 2–5 minutes.
-Offer them; don't march through them.
+**Time.** About 30–40 minutes on the core path, mostly because of commit waits. Each
+**deeper** branch adds 2–5 minutes. Offer them; don't march through them. If they're
+moving fast, combine small tasks into one message.
 
 **Theirs: every character of HTML and CSS.** Hints for the ladder:
 - "What do you think the browser does with the line breaks you typed?"
@@ -19,6 +20,10 @@ Offer them; don't march through them.
   might tell a link where to go?"
 - "A rule needs to say *what* to style and *how*. Which part of `p { color: green; }`
   does each?"
+
+**Words they can't guess.** `href`, `class`, the `.` in front of a class name,
+`rel="stylesheet"`, and `<link>`. Let them guess the shape once (they'll often get close,
+like `url=` or "give it a name"), praise that, then give the word.
 
 Three discoveries to protect. Let them hit each one before you say anything:
 1. Browsers ignore the spacing and line breaks they type.
@@ -30,7 +35,9 @@ takes about a minute to republish, which is too slow for trying out styles. Teac
 fast loop early (Step 1) as a snag: right-click → **Inspect** opens DevTools, where they
 can edit the page live. Changes there vanish on refresh, and that's a discovery too
 ("Why did it go away?"). Try things in DevTools, then put what they like into the file
-and commit.
+and commit. Learners forget this and go back to committing every change, so give a
+one-line reminder at the start of each styling task in Steps 3–5: "Try it in Inspect
+first."
 
 ## The lesson
 
@@ -51,15 +58,15 @@ think the browser ignored it?" Steer toward: HTML describes *what things are*, n
 the line breaks go. The browser decides the layout. So how do you tell it "this is a
 paragraph"?
 
-Then guide them, one element at a time, with questions:
+Then guide them with questions. Keep this step moving; the CSS is the main event.
 - `<p>` for paragraphs. "What letter might stand for paragraph?"
-- `<h1>` for the main heading, `<h2>` for a section. "Why do you think there are
-  numbers?"
-- A list: `<ul>` around `<li>` items. Let them guess what the letters stand for
-  (unordered list, list item). Nesting is the new idea: tags inside tags.
+- Headings and the list as one task: `<h1>` for the main heading, `<h2>` for a section
+  (ask "Why do you think there are numbers?"), and `<ul>` around `<li>` items. Let them
+  guess what the letters stand for (unordered list, list item). Nesting is the new idea:
+  tags inside tags.
 - A link: `<a href="https://...">text</a>`. This brings in **attributes**, extra
   information inside the opening tag. "The tag is `a`. How would you tell it *where*
-  to go?"
+  to go?" One guess, then give them `href`.
 
 Name the parts once they've used them: an **element** is the whole thing, **tags** are
 the angle-bracket bits, and an **attribute** is a `name="value"` inside the opening tag.
@@ -143,8 +150,9 @@ Let them try to write that from their wish in Step 3. The ladder:
 Name the parts once it works: **selector** (`p`), **declaration** (`color: green`), and
 together, a **rule**.
 
-Then the payoff: "Change green to purple once. What happened?" Have them delete all the
-inline `style` attributes.
+Then the payoff: "Change green to purple once. What happened?" Have them move their
+styles into rules and delete the inline `style` attributes. Don't chase every last one:
+a leftover (often the heading's color from Step 3) becomes a discovery in Step 5.
 
 **Core: one paragraph that's different.** "Make just *one* paragraph stand out. How can
 a rule point at only that one?" Steer toward the `class` attribute (`<p class="note">`)
@@ -173,6 +181,11 @@ Then the payoff: have them make `docs/about.html` with a little HTML and the sam
 `<link>`, and link the two pages to each other with `<a href="about.html">`. Change one
 color in `style.css`, commit, refresh both. "One change, two pages. How many pages could
 this work for?"
+
+If an inline style survived on `index.html`, the two pages won't match: say, a purple
+heading on one and a black heading on the other. Let them spot it and ask: "Why doesn't
+the about page match?" The fix is theirs: move it into `style.css`. It's the whole reason
+for the stylesheet, learned from their own page.
 
 **Deeper: why the split matters.** In 1994 Håkon Wium Lie proposed CSS, and the first
 version became a web standard in 1996. The idea: the HTML says what things are, the CSS
